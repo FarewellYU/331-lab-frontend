@@ -1,5 +1,6 @@
 package se331.lab.rest.controller;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -102,15 +103,22 @@ public class EventController {
             , @RequestParam(value = "_page", required = false) Integer page) {
         perPage = perPage == null ? eventList.size() : perPage;
         page = page == null ? 1 : page;
+
         Integer firstIndex = (page - 1) * perPage;
         List<Event> output = new ArrayList<>();
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.set("x-total-count", String.valueOf(eventList.size()));
         try{
         for (int i = firstIndex; i < firstIndex + perPage; i++) {
             output.add(eventList.get(i));
         }
-        return ResponseEntity.ok(output);
+        return new
+                ResponseEntity<>(output, responseHeaders, HttpStatus.OK);
+//        return ResponseEntity.ok(output);
     }catch (IndexOutOfBoundsException ex){
-            return ResponseEntity.ok(output);
+            return new
+                    ResponseEntity<>(output, responseHeaders, HttpStatus.OK);
+//            return ResponseEntity.ok(output);
         }
     }
 
