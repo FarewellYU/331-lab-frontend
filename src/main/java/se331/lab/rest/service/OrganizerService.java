@@ -6,7 +6,8 @@ import se331.lab.rest.entity.Organizer;
 import java.util.List;
 
 public interface OrganizerService {
-    Organizer getOrganizer(Long organizerId);
-    List<Organizer> getAllOrganizers(Integer ItemNo, Integer pageNo);
     Integer getOrganizerSize();
+    List<Organizer> getAllOrganizers(Integer pageSizeOrganizer, Integer pageorganizer);
+
+    Organizer getOrganizer(Long organizerId);
 }

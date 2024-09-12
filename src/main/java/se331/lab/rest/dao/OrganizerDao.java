@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface OrganizerDao {
     Organizer getOrganizer(Long organizerId);
-    List<Organizer> getAllOrganizers(Integer ItemNo, Integer pageNo);
+    List<Organizer> getAllOrganizers(Integer pageSizeOrganizer, Integer pageorganizer);
     Integer getOrganizerSize();
 }
