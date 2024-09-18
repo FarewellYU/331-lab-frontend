@@ -24,7 +24,7 @@ public class Application {
 //				registry.addMapping("/events/*")
 //						.allowedOrigins("http://localhost:5173");
 				registry.addMapping("/**")
-						.allowedOrigins("http: //localhost:5173")
+						.allowedOrigins("*")
 						.exposedHeaders("x-total-count");
 			}
 		};

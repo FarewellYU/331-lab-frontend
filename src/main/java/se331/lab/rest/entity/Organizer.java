@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Organizer {
+public class Organizer{
     Long id;
     String name;
     String organizationName;
